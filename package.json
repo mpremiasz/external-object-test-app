@@ -1,0 +1,14 @@
+{
+  "name": "external-object-test-app",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "External iframe application for testing parent messaging and resizing",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

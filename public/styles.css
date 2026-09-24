@@ -1,0 +1,59 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #13221b;
+  background: #f3f7f4;
+  --ink: #13221b;
+  --muted: #607068;
+  --surface: #ffffff;
+  --line: #d8e2dc;
+  --accent: #0b7252;
+  --accent-dark: #07553d;
+  --warm: #d87722;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 280px; }
+.hero { padding: 2.5rem clamp(1rem, 5vw, 4rem); color: white; background: linear-gradient(125deg, #0c3e31, #0b7252 65%, #25956f); }
+.hero h1 { max-width: 760px; margin: .2rem 0 .6rem; font: 700 clamp(2rem, 5vw, 3.8rem)/1.05 Georgia, serif; letter-spacing: -.035em; }
+.hero > p:last-child { max-width: 700px; margin: 0; color: #d7efe6; font-size: 1.05rem; }
+.eyebrow { margin: 0 0 .35rem; color: #0b7252; font-size: .75rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.hero .eyebrow { color: #b3e5d3; }
+main { display: grid; gap: 1rem; width: min(1080px, calc(100% - 2rem)); margin: -1.1rem auto 2rem; }
+section { padding: clamp(1rem, 3vw, 1.5rem); border: 1px solid var(--line); border-radius: 16px; background: var(--surface); box-shadow: 0 8px 28px rgb(20 60 42 / 8%); }
+h2 { margin: 0; font: 700 1.35rem/1.2 Georgia, serif; }
+.section-heading { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 1rem; }
+dl { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .75rem; margin: 1rem 0 0; }
+dl div { min-width: 0; padding: .8rem; border-radius: 10px; background: #f1f6f3; }
+dt { margin-bottom: .2rem; color: var(--muted); font-size: .74rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+dd { overflow-wrap: anywhere; margin: 0; font-weight: 650; }
+.badge { display: inline-block; width: fit-content; padding: .2rem .55rem; border-radius: 999px; color: #70420e; background: #fff0d8; }
+.badge[data-state="connected"] { color: #07553d; background: #d8f4e8; }
+.badge[data-state="error"] { color: #8e2525; background: #ffe4e4; }
+pre { min-height: 7rem; overflow: auto; margin: 0; padding: 1rem; border-radius: 10px; color: #dff6eb; background: #10271e; white-space: pre-wrap; }
+.button-row, .manual-control { display: flex; flex-wrap: wrap; align-items: end; gap: .65rem; }
+.manual-control { margin: 1rem 0; }
+.manual-control label { flex-basis: 100%; color: var(--muted); font-size: .82rem; font-weight: 700; }
+button, input { min-height: 42px; border: 1px solid transparent; border-radius: 9px; font: inherit; }
+button { padding: .65rem 1rem; color: white; background: var(--accent); font-weight: 750; cursor: pointer; }
+button:hover { background: var(--accent-dark); }
+button:focus-visible, input:focus-visible, summary:focus-visible { outline: 3px solid #67cbaa; outline-offset: 2px; }
+button.secondary { color: var(--accent-dark); border-color: #b6cdc3; background: white; }
+button.secondary:hover { background: #edf6f2; }
+button.warning { color: #71380a; border-color: #e5b47d; background: #fff1df; }
+button.compact { min-height: 34px; padding: .4rem .7rem; }
+input { width: 12rem; padding: .55rem .7rem; border-color: #aebfb7; background: white; }
+.switch { display: flex; align-items: center; gap: .5rem; color: var(--muted); font-size: .9rem; font-weight: 650; }
+.switch input { width: 1.1rem; min-height: 1.1rem; accent-color: var(--accent); }
+details { padding-top: .3rem; }
+summary { width: fit-content; color: var(--accent-dark); font-weight: 750; cursor: pointer; }
+.boundary-controls { margin-top: .8rem; }
+.generated-content { display: grid; gap: .7rem; }
+.empty-hint { margin: 0; color: var(--muted); }
+.content-block { padding: 1rem; border-left: 4px solid var(--accent); border-radius: 0 10px 10px 0; background: #eef7f3; }
+.content-block h3, .content-block p { margin: 0; }
+.content-block p { margin-top: .35rem; color: var(--muted); }
+.event-log { display: grid; align-content: start; gap: .4rem; height: 12rem; overflow: auto; margin: 0; padding-left: 1.6rem; color: var(--muted); font: .83rem/1.45 ui-monospace, SFMono-Regular, Consolas, monospace; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
+@media (max-width: 760px) { dl { grid-template-columns: repeat(2, minmax(0, 1fr)); } .section-heading { align-items: flex-start; flex-direction: column; } }
+@media (max-width: 430px) { dl { grid-template-columns: 1fr; } .button-row button, .manual-control button, .manual-control input { width: 100%; } }

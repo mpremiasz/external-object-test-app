@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>External Object Test App</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/config.js"></script>
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <p class="eyebrow">Iframe test harness</p>
+    <h1>External Object Test App</h1>
+    <p>Exercise registered-app messaging, cross-origin URL behavior, and dynamic iframe heights.</p>
+  </header>
+
+  <main>
+    <section class="status-grid" aria-labelledby="status-heading">
+      <h2 id="status-heading">Connection</h2>
+      <dl>
+        <div><dt>Status</dt><dd id="connection-status" class="badge">Starting</dd></div>
+        <div><dt>Parent origin</dt><dd id="parent-origin">Resolving…</dd></div>
+        <div><dt>Measured height</dt><dd><span id="measured-height">—</span> px</dd></div>
+        <div><dt>Last height sent</dt><dd id="sent-height">—</dd></div>
+      </dl>
+    </section>
+
+    <section aria-labelledby="payload-heading">
+      <div class="section-heading">
+        <div><p class="eyebrow">Inbound</p><h2 id="payload-heading">Parent parameters</h2></div>
+      </div>
+      <pre id="received-data">No data received.</pre>
+    </section>
+
+    <section aria-labelledby="controls-heading">
+      <div class="section-heading">
+        <div><p class="eyebrow">Outbound</p><h2 id="controls-heading">Height controls</h2></div>
+        <label class="switch"><input id="auto-height" type="checkbox" checked> Send changes automatically</label>
+      </div>
+      <div class="button-row">
+        <button id="add-content" type="button">Add content</button>
+        <button id="remove-content" type="button" class="secondary">Remove content</button>
+        <button id="send-measured" type="button" class="secondary">Send measured height</button>
+      </div>
+      <div class="manual-control">
+        <label for="manual-height">Manual height value</label>
+        <input id="manual-height" type="text" inputmode="numeric" value="600">
+        <button id="send-manual" type="button">Send manual value</button>
+      </div>
+      <details>
+        <summary>Boundary and invalid values</summary>
+        <div class="button-row boundary-controls">
+          <button id="send-over-limit" type="button" class="warning">Send 10,001 px</button>
+          <button id="send-zero" type="button" class="warning">Send zero</button>
+          <button id="send-malformed" type="button" class="warning">Send malformed value</button>
+        </div>
+      </details>
+    </section>
+
+    <section aria-labelledby="content-heading">
+      <div class="section-heading"><div><p class="eyebrow">Resize target</p><h2 id="content-heading">Generated content</h2></div></div>
+      <div id="generated-content" class="generated-content"><p class="empty-hint">Use “Add content” to grow the iframe.</p></div>
+    </section>
+
+    <section aria-labelledby="log-heading">
+      <div class="section-heading"><div><p class="eyebrow">Diagnostics</p><h2 id="log-heading">Message event log</h2></div><button id="clear-log" type="button" class="secondary compact">Clear</button></div>
+      <ol id="event-log" class="event-log"></ol>
+    </section>
+  </main>
+  <p id="announcement" class="sr-only" aria-live="polite"></p>
+</body>
+</html>
